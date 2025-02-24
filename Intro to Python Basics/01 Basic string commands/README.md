@@ -1,6 +1,6 @@
 <div align="center">
 
-#🐍String Manipulation📈
+# 🐍String Manipulation📈
 
 </div>
 
