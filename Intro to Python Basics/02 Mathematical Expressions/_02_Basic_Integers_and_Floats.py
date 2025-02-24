@@ -22,4 +22,4 @@ NegativeTradeValue = -1000
 
 print(abs(NegativeTradeValue)) #prints positive integer
 
-print(round(TradeFloatValue)) #prints rounded version of valu
+print(round(TradeFloatValue)) #prints rounded version of value
