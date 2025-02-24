@@ -1,0 +1,22 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35731.43
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "02 Basic Integers and Floats", "02 Basic Integers and Floats.pyproj", "{8C571BAC-5FA4-4A29-802D-1665330D35DD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8C571BAC-5FA4-4A29-802D-1665330D35DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C571BAC-5FA4-4A29-802D-1665330D35DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EBB6FA05-343C-40ED-A184-36908FD5448A}
+	EndGlobalSection
+EndGlobal
