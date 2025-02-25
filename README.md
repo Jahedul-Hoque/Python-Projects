@@ -13,8 +13,6 @@ This repository will document my **Python journey**, showcasing projects related
 
 ### ✅ Python Topics Covered:  
 
-<progress value="2" max="10"></progress> **(20% Complete)**
-
 ✔ **Python Syntax & Data Types**  
 ✔ **String Manipulation & Formatting**  
 ⏳ **Functions & Scope**  
