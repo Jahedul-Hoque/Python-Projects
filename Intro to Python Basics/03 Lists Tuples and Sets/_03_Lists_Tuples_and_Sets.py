@@ -42,3 +42,13 @@ print()
 TradeSecurities.sort()
 print("Sorting list based on alphebetical order")
 print(TradeSecurities)
+print()
+
+
+print("Golds index number is", TradeSecurities.index("Gold"))
+print()
+#print the index of a security
+
+for trade in TradeSecurities:
+    print(TradeSecurities.index(trade), "is indexed to ", trade)
+    # trade becomes an index value for the elements in the list
