@@ -1,3 +1,6 @@
+from tkinter import END
+
+
 TradeSecurities = ["Gold", "Silver", "Bonds", "FX", "Crypto"]
 DifferentTradeSecurities = ["Bitcoin", "Gamestop"]
 # initialise list
@@ -40,7 +43,7 @@ print()
 #removes last value on the list, assigns it to new variable and prints it out
 
 TradeSecurities.sort()
-print("Sorting list based on alphebetical order")
+print("Sorting list based on alphebetical order\n")
 print(TradeSecurities)
 print()
 
@@ -51,4 +54,15 @@ print()
 
 for trade in TradeSecurities:
     print(TradeSecurities.index(trade), "is indexed to ", trade)
+    
     # trade becomes an index value for the elements in the list
+   
+
+print()
+TradeSecuritySet = {"Gold", "Silver", "FX", "FX", "FX"}
+NewTradeSecuritySet = {"Gold", "MemeCoin", "Gamestop", "FX"}
+print("Union of 2 sets without any duplicates: ", TradeSecuritySet.union(NewTradeSecuritySet), "\n")
+print ("Length of set without duplicates: ", len(TradeSecuritySet), "\n")
+#only 3 elements even though theres 5
+print (TradeSecuritySet, "\n")
+#sets have no order and will remove duplicates
