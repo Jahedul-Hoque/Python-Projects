@@ -63,6 +63,4 @@ TradeSecuritySet = {"Gold", "Silver", "FX", "FX", "FX"}
 NewTradeSecuritySet = {"Gold", "MemeCoin", "Gamestop", "FX"}
 print("Union of 2 sets without any duplicates: ", TradeSecuritySet.union(NewTradeSecuritySet), "\n")
 print ("Length of set without duplicates: ", len(TradeSecuritySet), "\n")
-#only 3 elements even though theres 5
-print (TradeSecuritySet, "\n")
 #sets have no order and will remove duplicates
