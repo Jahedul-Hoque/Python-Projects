@@ -10,13 +10,11 @@ Each project is structured inside the **Python-Finance-Intro/** directory, demon
 
 ---
 
-## 📂 **Project Directory**
-
 ### 📁 `Python-Finance-Intro/`
 
 This directory contains multiple sub-projects showcasing **data handling, NumPy operations, and financial computations**.
 
-### 🔹 `Python Logging`
+### 🔹 `String Manipulation`
 📌 **Project:** Logs financial trading activities dynamically using **string manipulation**.
 
 **Key Concepts:**
@@ -26,7 +24,7 @@ This directory contains multiple sub-projects showcasing **data handling, NumPy 
 
 ---
 
-### 🔹 `Python Trade Operations`
+### 🔹 `Mathematical Expressions`
 📌 **Project:** Demonstrates essential **numerical operations** for handling financial data.
 
 **Key Concepts:**
