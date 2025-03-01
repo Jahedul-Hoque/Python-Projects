@@ -19,8 +19,8 @@ print(AccountBalance, "\n")
 symbol = "BTCUSDT"
 #make a variable equal to the value of Bitcoin in relation to US Dollars
 
-BuyPriceThreshold = 80000
-SellPriceThreshold = 86000
+BuyPriceThreshold = 85000
+SellPriceThreshold = 90000
 TradeQuantity = 0.001
 #set buy/sell thresholds
 #set trade quantity which we will buy/sell securities at 
@@ -30,4 +30,19 @@ def GetCurrentPrice(symbol):
     ticker = client.get_symbol_ticker(symbol=symbol)
     return float(ticker["price"])
 
+
+def PlaceBuyOrder(symbol, quantity):
+    order = client.order_market_buy(symbol=symbol, quantity=quantity)
+    print(f"Buy order done: {order} \n")
+    print(AccountBalance, "\n")
+
+def PlaceSellOrder(symbol, quantity):
+    order = client.order_market_sell(symbol=symbol, quantity=quantity)
+    print(f"Sell order done: {order} \n")
+    print(AccountBalance, "\n")
+
+#PlaceSellOrder(symbol,TradeQuantity)
+#PlaceBuyOrder(symbol,TradeQuantity)
+
 print("Current price of bitcoin in USD:", GetCurrentPrice(symbol), "\n")
+
