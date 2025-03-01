@@ -64,8 +64,7 @@ def TradingBot():
                 print(f"Price is above {SellPriceThreshold}. Placing Sell order.")
                 PlaceSellOrder(symbol,TradeQuantity)
                 InPoisiton = False
-        time.sleep(3)
-
+        time.sleep(3)#
 
 
 
