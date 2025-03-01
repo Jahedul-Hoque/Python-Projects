@@ -6,6 +6,9 @@ import os
 load_dotenv()
 #imports .env and os library to load .env file containing API Key and Secret
 
+import time
+#allows program to sleep which is nice for presentation purposes on console
+
 APIKey = os.getenv("APIKey")
 Secret = os.getenv("Secret")
 client = Client(APIKey,Secret,testnet=True)
@@ -20,7 +23,7 @@ symbol = "BTCUSDT"
 #make a variable equal to the value of Bitcoin in relation to US Dollars
 
 BuyPriceThreshold = 85000
-SellPriceThreshold = 90000
+SellPriceThreshold = 87000
 TradeQuantity = 0.001
 #set buy/sell thresholds
 #set trade quantity which we will buy/sell securities at 
@@ -44,5 +47,25 @@ def PlaceSellOrder(symbol, quantity):
 #PlaceSellOrder(symbol,TradeQuantity)
 #PlaceBuyOrder(symbol,TradeQuantity)
 
-print("Current price of bitcoin in USD:", GetCurrentPrice(symbol), "\n")
+
+def TradingBot():
+    InPoisiton = False
+    while True:
+        CurrentPrice = GetCurrentPrice(symbol)
+        print(f"Current price of {symbol}: {CurrentPrice}")
+
+        if not InPoisiton:
+            if CurrentPrice<BuyPriceThreshold:
+                print(f"Price is below {BuyPriceThreshold}. Placing Buy order.")
+                PlaceBuyOrder(symbol,TradeQuantity)
+                InPoisiton = True
+        else:
+            if CurrentPrice>SellPriceThreshold:
+                print(f"Price is above {SellPriceThreshold}. Placing Sell order.")
+                PlaceSellOrder(symbol,TradeQuantity)
+                InPoisiton = False
+        time.sleep(3)
+
+
+
 
