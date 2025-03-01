@@ -15,6 +15,9 @@ This repository will document my **Python journey**, showcasing projects related
 
 ✔ **Python Syntax & Data Types**  
 ✔ **String Manipulation & Formatting**  
+✔ **Key Value Pairs**  
+✔ **Intro to Numpy (2D, 3D, Linear Algebra)**  
+✔ **List Tuples & Strings**  
 ⏳ **Functions & Scope**  
 ⏳ **Object-Oriented Programming (OOP)**  
 ⏳ **Error Handling & Logging**  
