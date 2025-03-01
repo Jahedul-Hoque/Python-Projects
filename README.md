@@ -17,14 +17,13 @@ This repository will document my **Python journey**, showcasing projects related
 ✔ **String Manipulation & Formatting**  
 ✔ **Key Value Pairs**  
 ✔ **Intro to Numpy (2D, 3D, Linear Algebra)**  
-✔ **List Tuples & Strings**  
-⏳ **Functions & Scope**  
-⏳ **Object-Oriented Programming (OOP)**  
-⏳ **Error Handling & Logging**  
-⏳ **Multithreading & Concurrency**  
-⏳ **Data Analysis with Pandas & NumPy**  
-⏳ **Database Operations (SQL & NoSQL)**  
+✔ **List Tuples & Strings** 
 ⏳ **APIs & Web Scraping for Market Data**  
+⏳ **Error Handling & Logging**  
+⏳ **Data Analysis with Pandas & NumPy**  
+⏳ **Object-Oriented Programming (OOP)**  
+⏳ **Multithreading & Concurrency**  
+⏳ **Database Operations (SQL & NoSQL)**  
 ⏳ **Machine Learning for Trading**  
 
 
@@ -38,10 +37,10 @@ Once the fundamentals are covered, I'll move towards **financial engineering app
 
 <progress value="0" max="5"></progress> **(0% Started)**
 
+⏳ **Algorithmic Trading Bot** – Executing live market trades with APIs.  
 ⏳ **Real-Time Trade Execution Logger** – Logging structured trade events dynamically.  
 ⏳ **Historical Market Data Analysis** – Using Pandas & NumPy for backtesting strategies.  
 ⏳ **Options Pricing Models** – Implementing Black-Scholes & Monte Carlo simulations.  
-⏳ **Algorithmic Trading Bot** – Executing live market trades with APIs.  
 ⏳ **Risk Management & Portfolio Optimization** – Using statistics & machine learning.  
 
 📌 **These will be stored in `trading-systems/` with proper documentation.**  
