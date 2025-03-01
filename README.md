@@ -11,14 +11,20 @@ This repository will document my **Python journey**, showcasing projects related
 - **Algorithmic Trading Strategies** 📈
 - **Financial Data Analytics** 💰
 
-### ✅ Python Topics Covered:  
+### Python Topics Covered:  
 
-✔ **Python Syntax & Data Types**  
-✔ **String Manipulation & Formatting**  
-✔ **Key Value Pairs**  
-✔ **Intro to Numpy (2D, 3D, Linear Algebra)**  
-✔ **List Tuples & Strings** 
-⏳ **APIs & Web Scraping for Market Data**  
+✅ **Python Syntax & Data Types**  
+
+✅ **String Manipulation & Formatting** 
+
+✅ **Key Value Pairs**  
+
+✅ **Intro to Numpy (2D, 3D, Linear Algebra)**  
+
+✅ **List Tuples & Strings** 
+
+✅ **Working with REST APIs to retrieve market data**  
+
 ⏳ **Error Handling & Logging**  
 ⏳ **Data Analysis with Pandas & NumPy**  
 ⏳ **Object-Oriented Programming (OOP)**  
