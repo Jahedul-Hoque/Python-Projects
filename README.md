@@ -37,7 +37,7 @@ Once the fundamentals are covered, I'll move towards **financial engineering app
 
 <progress value="0" max="5"></progress> **(0% Started)**
 
-⏳ **Algorithmic Trading Bot** – Executing live market trades with APIs.  
+⏳ **Crypto Trading Bot** – Executing live market trades with APIs.  
 ⏳ **Real-Time Trade Execution Logger** – Logging structured trade events dynamically.  
 ⏳ **Historical Market Data Analysis** – Using Pandas & NumPy for backtesting strategies.  
 ⏳ **Options Pricing Models** – Implementing Black-Scholes & Monte Carlo simulations.  
