@@ -13,12 +13,36 @@ print("Trader 2 has traded", TradeValues.loc["Trader 2"], "USDT")
 
 
 # Data Frame: Combination of an excel sheet and a database table
-df = pd.DataFrame({
+NewDataFrame = pd.DataFrame({
     'Name': ['Jad', 'Shanawaz', 'Jim', 'Kevin'],
     'Salary':[35000, 150000, 1000000, 125000],
     'Title': ['EUS Engineer', 'Developer', 'CEO', 'Developer']
 })
+NewDataFrame = NewDataFrame.set_index("Name")
+print(NewDataFrame, "\n")
+# Create a data frame and index it to "Name"
 
-df = df.set_index("Name")
 
-print(df)
+DataFrame1 = pd.DataFrame({
+"Portfolio Value": [1000, 1500, 2000, 2500]
+},index=[1,2,3,4], dtype="int16")
+# Creates DataFrame1
+
+DataFrame2 = pd.DataFrame({
+"Portfolio Value": [1000, 1500, 2000, 2500]
+}, index=[1,2,3,4], dtype="int16")
+# Creates DataFrame2
+
+DataFrame3 = DataFrame1+DataFrame2
+# Creates DataFrame3 from adding DataFrame1 + DataFrame2
+
+
+print("Portfolio 1: \n")
+print(DataFrame1, "\n")
+
+print("Portfolio 2: \n")
+print(DataFrame2, "\n")
+
+print("Portfolio 1 + Portfolio 2: \n")
+print(DataFrame3, "\n")
+# Adds all the values with matching indexes
