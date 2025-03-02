@@ -25,11 +25,20 @@ This repository will document my **Python journey**, showcasing projects related
 
 ✅ **Working with REST APIs to retrieve market data**  
 
+✅ **Importing and Exporting CSV/JSON Files with Pandas**  
+
+✅ **Adding up Data Frames together with Pandas using indexes** 
+
 ⏳ **Error Handling & Logging**  
+
 ⏳ **Data Analysis with Pandas & NumPy**  
+
 ⏳ **Object-Oriented Programming (OOP)**  
+
 ⏳ **Multithreading & Concurrency**  
+
 ⏳ **Database Operations (SQL & NoSQL)**  
+
 ⏳ **Machine Learning for Trading**  
 
 
