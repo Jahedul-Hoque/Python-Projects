@@ -16,14 +16,14 @@ client = Client(APIKey,Secret,testnet=True)
 #                                  testing binance environment
 
 AccountBalance= client.get_account()
-print(AccountBalance, "\n")
+#print(AccountBalance, "\n")
 #prints account balance of the testing account
 
 symbol = "BTCUSDT"
 #make a variable equal to the value of Bitcoin in relation to US Dollars
 
-BuyPriceThreshold = 85000
-SellPriceThreshold = 87000
+BuyPriceThreshold = 85910
+SellPriceThreshold = 85950
 TradeQuantity = 0.001
 #set buy/sell thresholds
 #set trade quantity which we will buy/sell securities at 
@@ -37,16 +37,10 @@ def GetCurrentPrice(symbol):
 def PlaceBuyOrder(symbol, quantity):
     order = client.order_market_buy(symbol=symbol, quantity=quantity)
     print(f"Buy order done: {order} \n")
-    print(AccountBalance, "\n")
 
 def PlaceSellOrder(symbol, quantity):
     order = client.order_market_sell(symbol=symbol, quantity=quantity)
     print(f"Sell order done: {order} \n")
-    print(AccountBalance, "\n")
-
-#PlaceSellOrder(symbol,TradeQuantity)
-#PlaceBuyOrder(symbol,TradeQuantity)
-
 
 def TradingBot():
     InPoisiton = False
@@ -64,7 +58,14 @@ def TradingBot():
                 print(f"Price is above {SellPriceThreshold}. Placing Sell order.")
                 PlaceSellOrder(symbol,TradeQuantity)
                 InPoisiton = False
-        time.sleep(3)#
+        time.sleep(3)
+
+#TradingBot()
+#PlaceSellOrder(symbol,TradeQuantity)
+#PlaceBuyOrder(symbol,TradeQuantity)
+#print(AccountBalance)
+print("Current price of Bitcoin in USDT is: ", GetCurrentPrice(symbol))
+
 
 
 
