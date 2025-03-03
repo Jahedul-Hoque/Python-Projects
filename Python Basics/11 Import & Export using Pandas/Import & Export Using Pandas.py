@@ -26,5 +26,8 @@ print(df1.tail(), "\n")
 # Prints the last 5 rows
 
 print(df1.sample(2), "\n")
-# Prints 2 random rows
+# Prints 2 random rows 
 
+print(df1.describe(), "\n")
+
+print(df1["Salary"].max())
