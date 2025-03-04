@@ -31,7 +31,7 @@ print("b has a data type of ", b.dtype, "\n")
 print(b.nbytes, "\n")
 # this prints out number of bytes (6 elements * 8 = 48 bytes)
 
-newArray = np.array(
+new_array = np.array(
     [
         [
             1,
@@ -44,12 +44,12 @@ newArray = np.array(
     ],
     "\n",
 )
-print("New Array:", newArray, "\n")
-print("Number of elements in New Array:", newArray.size, "\n")
-print(newArray[0, 1:4:1])
+print("New Array:", new_array, "\n")
+print("Number of elements in New Array:", new_array.size, "\n")
+print(new_array[0, 1:4:1])
 # print the 0th vectored row (1,2,3,4,5) and then start from the 1st index until the 4th index(5) and step by 1 which is 4.
 # that should be 2,3,4
 
-newArray[1, 3] = 100
-print(newArray)
+new_array[1, 3] = 100
+print(new_array)
 # should print the 4th element of the second row as 100

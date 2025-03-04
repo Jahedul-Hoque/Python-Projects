@@ -1,5 +1,5 @@
 # Set the maximum line length to 79
-line-length = 79
+line-length = 85
 
 [lint]
 extend-select = ["E501", "N", "R", "I"]
