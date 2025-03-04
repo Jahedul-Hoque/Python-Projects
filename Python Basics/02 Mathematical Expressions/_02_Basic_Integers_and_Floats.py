@@ -1,21 +1,21 @@
-TradeIntegerValue = 3
+trade_integer_value = 3
 
-print(type(TradeIntegerValue))  ##prints out variable type
+print(type(trade_integer_value))  ##prints out variable type
 
-TradeFloatValue = 3.54
+trade_float_value = 3.54
 
-print(type(TradeFloatValue))  ##prints out variable type
-
-
-TradeValue = 1000
-
-TradeValue += 100  # adds 100 to the variable
-
-print(TradeValue)
+print(type(trade_float_value))  ##prints out variable type
 
 
-NegativeTradeValue = -1000
+trade_value = 1000
 
-print(abs(NegativeTradeValue))  # prints positive integer
+trade_value += 100  # adds 100 to the variable
 
-print(round(TradeFloatValue))  # prints rounded version of value
+print(trade_value)
+
+
+negative_trade_value = -1000
+
+print(abs(negative_trade_value))  # prints positive integer
+
+print(round(trade_float_value))  # prints rounded version of value

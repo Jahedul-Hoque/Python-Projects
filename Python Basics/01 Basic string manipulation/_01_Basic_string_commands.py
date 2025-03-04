@@ -1,16 +1,16 @@
-loggingOn = "Shan has logged into his citrix VM."
-tradeValue = 10000
-traderName = "shan"
+logging_on = "Shan has logged into his citrix VM."
+trade_value = 10000
+trader_name = "shan"
 
 
-Message = f"{traderName.upper()} is trading {tradeValue} GBP"
-taskEnded = loggingOn.replace(
+message = f"{trader_name.upper()} is trading {trade_value} GBP"
+task_ended = logging_on.replace(
     "Shan has logged into his citrix VM.",
-    f"{traderName.capitalize()} has finished trading",
+    f"{trader_name.capitalize()} has finished trading",
 )
 
 
-print(loggingOn)
-print(Message)
-print(taskEnded)
+print(logging_on)
+print(message)
+print(task_ended)
 print()
