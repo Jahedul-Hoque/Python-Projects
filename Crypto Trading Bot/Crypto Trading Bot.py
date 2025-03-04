@@ -1,5 +1,6 @@
 from binance.client import Client  # Importing Binance platform
-from dotenv import load_dotenv  # Importing .env library to load file
+from dotenv import load_dotenv  
+# Importing .env library to load file
 import os  # Importing OS Library to load .env file
 import time
 
