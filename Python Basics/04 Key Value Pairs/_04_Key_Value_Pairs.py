@@ -9,9 +9,7 @@ print(employee_info, "\n")
 
 print(employee_info["name"], "is currently coding right now. \n")
 
-print(
-    employee_info["name"], "earns approximately $", employee_info["Salary"], "\n"
-)
+print(employee_info["name"], "earns approximately $", employee_info["Salary"], "\n")
 # prints key of employee_info name and salary
 
 print(employee_info.get("Location", "Location not found"), "\n")

@@ -48,16 +48,12 @@ def trading_bot():
 
         if not in_position:
             if current_price < buy_price_threshold:
-                print(
-                    f"Price is below {buy_price_threshold}. Placing Buy order."
-                )
+                print(f"Price is below {buy_price_threshold}. Placing Buy order.")
                 place_buy_order(symbol, trade_quantity)
                 in_position = True
         else:
             if current_price > sell_price_threshold:
-                print(
-                    f"Price is above {sell_price_threshold}. Placing Sell order."
-                )
+                print(f"Price is above {sell_price_threshold}. Placing Sell order.")
                 place_sell_order(symbol, trade_quantity)
                 in_position = False
         time.sleep(2)  # Pause before fetching the next price
