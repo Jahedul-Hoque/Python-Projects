@@ -19,23 +19,23 @@ print(e, "\n")  # Random integers 0-6 (3x3)
 
 # Repeating elements in an array
 f = np.array([[1, 2, 3]])
-RepeatArray = np.repeat(f, 3, axis=0)
-print(RepeatArray, "\n")  # Repeats row-wise
+repeat_array = np.repeat(f, 3, axis=0)
+print(repeat_array, "\n")  # Repeats row-wise
 
-RepeatArray = np.repeat(f, 3, axis=1)
-print(RepeatArray, "\n")  # Repeats column-wise
+repeat_array = np.repeat(f, 3, axis=1)
+print(repeat_array, "\n")  # Repeats column-wise
 
 # Creating a bordered matrix
-Array = np.ones((5, 5))
-print(Array, "\n")
+array = np.ones((5, 5))
+print(array, "\n")
 
 zero = np.zeros((3, 3))
 print(zero, "\n")
 zero[1, 1] = 9
 print(zero, "\n")
 
-Array[1:4, 1:4] = zero
-print(Array, "\n")
+array[1:4, 1:4] = zero
+print(array, "\n")
 
 # Copying an array correctly
 a = np.array([1, 2, 3])
