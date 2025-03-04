@@ -47,7 +47,8 @@ new_array = np.array(
 print("New Array:", new_array, "\n")
 print("Number of elements in New Array:", new_array.size, "\n")
 print(new_array[0, 1:4:1])
-# print the 0th vectored row (1,2,3,4,5) and then start from the 1st index until the 4th index(5) and step by 1 which is 4.
+# print the 0th vectored row (1,2,3,4,5) and then start from the 
+# .. 1st index until the 4th index(5) and step by 1 which is 4.
 # that should be 2,3,4
 
 new_array[1, 3] = 100

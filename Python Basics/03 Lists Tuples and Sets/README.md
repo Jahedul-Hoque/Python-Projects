@@ -15,52 +15,74 @@ This project demonstrates **list and set operations in Python** related to tradi
 
 ## 💻 Code Breakdown
 ```python
-TradeSecurities = ["Gold", "Silver", "Bonds", "FX", "Crypto"]
-DifferentTradeSecurities = ["Bitcoin", "Gamestop"]
+trade_securities = ["Gold", "Silver", "Bonds", "FX", "Crypto"]
+different_trade_securities = ["Bitcoin", "Gamestop"]
+# initialise list
 
-# Display trade securities list
-print("Trade Security List:", TradeSecurities, "\n")
+print("Trade Security List:", trade_securities)
+print()
 
-# Display number of securities
-print("Quantity of Securities:", len(TradeSecurities), "\n")
 
-# Access elements by index
-print("First security:", TradeSecurities[0], "\n")
+print("Quantity of Securities:", len(trade_securities))
+print()
+# print length of list
 
-# Slice list (exclude first two elements)
-print("Every security after the first 2 securities:", TradeSecurities[2:], "\n")
+print("First security:", [trade_securities])
+print()
+# prints index 0 of list
 
-# Add securities
-TradeSecurities.append("Trump Coin")
-print("Adding Trump Coin to the end of list:", TradeSecurities, "\n")
+print("Every security after the first 2 securities:", trade_securities[2:])
+print()
+# prints everything including and after index 2
 
-TradeSecurities.insert(1, "Melena Coin")
-print("Adding Melena Coin to the second index of list:", TradeSecurities, "\n")
+trade_securities.append("Trump Coin")
+# add element to the end
 
-# Merge lists
-TradeSecurities.extend(DifferentTradeSecurities)
-print("Adding new list to the end of current list:", TradeSecurities, "\n")
+print("Adding Trump coin to the end of list:", trade_securities)
+print()
 
-# Remove last element
-DeletedSecurity = TradeSecurities.pop()
-print("Last security on the Trade security list is:", DeletedSecurity, "\n")
+trade_securities.insert(1, "Melena Coin")
+# inserts element at index 1
+print("Adding Melena coin to the second index of list:", trade_securities)
+print()
 
-# Sort list
-TradeSecurities.sort()
-print("Sorting list based on alphabetical order:\n", TradeSecurities, "\n")
+trade_securities.extend(different_trade_securities)
+print("Adding new list to the end of current list:", trade_securities)
+print()
+# adding 2 lists together
 
-# Find index of an item
-print("Gold's index number is", TradeSecurities.index("Gold"), "\n")
+DeletedSecurity = trade_securities.pop()
+print("Last security on the Trade security list is:", DeletedSecurity)
+print()
+# removes last value on the list, assigns it to new variable and prints it out
 
-# Print index-element pairs
-for trade in TradeSecurities:
-    print(TradeSecurities.index(trade), "is indexed to", trade)
+trade_securities.sort()
+print("Sorting list based on alphebetical order\n")
+print(trade_securities)
+print()
 
-# Set operations to remove duplicates
-TradeSecuritySet = {"Gold", "Silver", "FX", "FX", "FX"}
-NewTradeSecuritySet = {"Gold", "MemeCoin", "Gamestop", "FX"}
-print("Union of 2 sets without any duplicates:", TradeSecuritySet.union(NewTradeSecuritySet), "\n")
-print("Length of set without duplicates:", len(TradeSecuritySet), "\n")
+
+print("Golds index number is", trade_securities.index("Gold"))
+print()
+# print the index of a security
+
+for trade in trade_securities:
+    print(trade_securities.index(trade), "is indexed to ", trade)
+
+    # trade becomes an index value for the elements in the list
+
+
+print()
+trade_security_set = {"Gold", "Silver", "FX", "FX", "FX"}
+new_trade_securities = {"Gold", "MemeCoin", "Gamestop", "FX"}
+print(
+    "Union of 2 sets without any duplicates: ",
+    trade_securities.union(new_trade_securities),
+    "\n",
+)
+print("Length of set without duplicates: ", len(trade_security_set), "\n")
+# sets have no order and will remove duplicates
+
 ```
 
 ## 🔍 Explanation

@@ -17,46 +17,61 @@ This project demonstrates how to create, manipulate, and analyze **NumPy arrays*
 ```python
 import numpy as np
 
-# Creating 1D and 2D NumPy arrays
 a = np.array([1, 2, 3])
 b = np.array([[9.0, 8.0, 7.0], [6.0, 5.0, 4.0]])
 print("a:", a, "\n", "b:", b, "\n")
+# makes 1d and 2d array and prints them both
 
-# Retrieving array dimensions
 adim = a.ndim
 print("a has a dimension of", adim, "\n")
+# a has a dimension of 1
 
 bdim = b.ndim
 print("b has a dimension of", bdim, "\n")
+# b has a dimension of 2
 
-# Retrieving array shapes
+
 ashape = a.shape
 print("a has a shape of", ashape, "\n")
+# ashape has a shape of 3 collumns + 1 invisible row
 
 bshape = b.shape
 print("b has a shape of", bshape, "\n")
+# bshape has a shape of 3 collumns and 2 rows
 
-# Checking data types
-dtype_a = a.dtype
-print("a has a data type of", dtype_a, "\n")
+print("a has a data type of ", a.dtype, "\n")
+# 64 bits or 8 bytes of an integer64 by default
 
-dtype_b = b.dtype
-print("b has a data type of", dtype_b, "\n")
+print("b has a data type of ", b.dtype, "\n")
+# 64 bits or 8 bytes of a float64 by default
 
-# Memory usage
-print("b uses", b.nbytes, "bytes of memory\n")
+print(b.nbytes, "\n")
+# this prints out number of bytes (6 elements * 8 = 48 bytes)
 
-# Creating a new array and analyzing its elements
-newArray = np.array([[1, 2, 3, 4, 5], [6, 7, 8, 9, 10]])
-print("New Array:", newArray, "\n")
-print("Number of elements in New Array:", newArray.size, "\n")
+new_array = np.array(
+    [
+        [
+            1,
+            2,
+            3,
+            4,
+            5,
+        ],
+        [6, 7, 8, 9, 10],
+    ],
+    "\n",
+)
+print("New Array:", new_array, "\n")
+print("Number of elements in New Array:", new_array.size, "\n")
+print(new_array[0, 1:4:1])
+# print the 0th vectored row (1,2,3,4,5) and then start from the 
+# .. 1st index until the 4th index(5) and step by 1 which is 4.
+# that should be 2,3,4
 
-# Slicing an array segment
-print(newArray[0, 1:4:1])  # Extracts elements 2, 3, and 4 from the first row
+new_array[1, 3] = 100
+print(new_array)
+# should print the 4th element of the second row as 100
 
-# Modifying an array element
-newArray[1, 3] = 100
-print(newArray)
 ```
 
 ## 🔍 Explanation

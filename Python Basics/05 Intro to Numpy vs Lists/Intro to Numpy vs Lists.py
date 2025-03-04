@@ -1,8 +1,8 @@
 import numpy as np
 
 # Python List Trade Values
-List_TradeValues = [123, 456, 789]
-print(List_TradeValues)
+list_trade_values = [123, 456, 789]
+print(list_trade_values)
 
 # Characteristics of Python Lists:
 # - Uses pointers due to scattered memory allocation.
@@ -10,8 +10,8 @@ print(List_TradeValues)
 # - Supports different data types in a single list.
 
 # NumPy Array Trade Values
-Numpy_TradeValues = np.array([564.31, 400.34, 349.53])
-print(Numpy_TradeValues)
+numpy_trade_values = np.array([564.31, 400.34, 349.53])
+print(numpy_trade_values)
 
 # Characteristics of NumPy Arrays:
 # - Uses contiguous memory allocation for efficiency.
