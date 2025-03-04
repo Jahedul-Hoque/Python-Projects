@@ -1,11 +1,11 @@
 import numpy as np
 
 # Creating a matrix of ones (2x3)
-a = np.ones((2,3))
+a = np.ones((2, 3))
 print(a, "\n")
 
 # Creating a matrix filled with 5s (3x2)
-b = np.full((3,2), 5)
+b = np.full((3, 2), 5)
 print(b, "\n")
 
 # Performing matrix multiplication

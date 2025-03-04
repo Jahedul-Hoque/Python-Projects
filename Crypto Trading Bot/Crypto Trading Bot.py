@@ -1,7 +1,7 @@
-from binance.client import Client # Importing Binance platform
-from dotenv import load_dotenv # Importing .env library to load file
-import os # Importing OS Library to load .env file
-import time 
+from binance.client import Client  # Importing Binance platform
+from dotenv import load_dotenv  # Importing .env library to load file
+import os  # Importing OS Library to load .env file
+import time
 
 
 # Load API keys from .env file
@@ -44,15 +44,19 @@ def TradingBot():
     while True:
         CurrentPrice = GetCurrentPrice(symbol)
         print(f"Current price of {symbol}: {CurrentPrice}")
-        
+
         if not InPosition:
             if CurrentPrice < BuyPriceThreshold:
-                print(f"Price is below {BuyPriceThreshold}. Placing Buy order.")
+                print(
+                    f"Price is below {BuyPriceThreshold}. Placing Buy order."
+                )
                 PlaceBuyOrder(symbol, TradeQuantity)
                 InPosition = True
         else:
             if CurrentPrice > SellPriceThreshold:
-                print(f"Price is above {SellPriceThreshold}. Placing Sell order.")
+                print(
+                    f"Price is above {SellPriceThreshold}. Placing Sell order."
+                )
                 PlaceSellOrder(symbol, TradeQuantity)
                 InPosition = False
         time.sleep(2)  # Pause before fetching the next price
@@ -61,6 +65,7 @@ def TradingBot():
 # Main function
 def main():
     print("Current price of Bitcoin in USDT is:", GetCurrentPrice(symbol))
+
 
 if __name__ == "__main__":
     main()
