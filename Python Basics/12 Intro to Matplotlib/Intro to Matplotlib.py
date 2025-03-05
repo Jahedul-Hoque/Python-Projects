@@ -1,48 +1,16 @@
 import pandas as pd
+import matplotlib as mp
+import matplotlib.pyplot as plt
+import os
+import yfinance as yf
 
-# Creating a DataFrame with employee information
-df1 = pd.DataFrame(
-    {
-        "Employee Name": [
-            "Jad",
-            "Shan",
-            "Jim",
-            "Kevin",
-            "Dave",
-            "Jack",
-            "Dan",
-            "Sanjay",
-            "Tilly",
-            "Metin",
-            "George",
-        ],
-        "Title": [
-            "EUS Engineer",
-            "Platforms Developer",
-            "CEO",
-            "Platforms Developer",
-            "KDB Developer",
-            "DevOps Engineer",
-            "Senior EUS Engineer",
-            "Facilities Manager",
-            "Workplace Support",
-            "Software Engineer",
-            "Senior Software Engineer",
-        ],
-        "Salary": [
-            40000,
-            150000,
-            1000000,
-            125000,
-            100000,
-            70000,
-            65000,
-            45000,
-            35000,
-            100000,
-            120000,
-        ],
-    }
-)
+stock_df = yf.download("AAPL")
 
-print(df1)
+stock_df.hist(figsize=(12,8))
+
+plt.savefig("plot.png")
+os.system("xdg-open plot.png")
+ # Saves the plot as an image file since terminal doesnt support GUI
+
+
+
