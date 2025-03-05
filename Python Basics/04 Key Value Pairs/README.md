@@ -15,38 +15,43 @@ This project demonstrates **dictionary operations in Python** for managing emplo
 
 ## 💻 Code Breakdown
 ```python
-# Employee information stored in a dictionary
-employeeInfo = {
-    'name': 'Shan',
-    'Title': "CEO of Schonfeld",
+employee_info = {
+    "name": "Shan",
+    "Title": "CEO of Schonfeld",
     "Favourite Coding Languages": ["C++", "Python"],
-    "Salary": 10000000
+    "Salary": 10000000,
 }
 
-# Print entire dictionary
-print(employeeInfo, "\n")
+print(employee_info, "\n")
 
-# Access specific dictionary keys
-print(employeeInfo["name"], "is currently coding right now. \n")
-print(employeeInfo["name"], "earns approximately $", employeeInfo["Salary"], "\n")
+print(employee_info["name"], "is currently coding right now. \n")
 
-# Using .get() to handle missing keys
-print(employeeInfo.get("Location", "Location not found"), "\n")
+print(employee_info["name"], "earns approximately $", employee_info["Salary"], "\n")
+# prints key of employee_info name and salary
 
-# Removing a key-value pair using .pop()
-EmployeeName = employeeInfo.pop("name")
-print("The employee's name that you've popped out of the dictionary is", EmployeeName, "\n")
+print(employee_info.get("Location", "Location not found"), "\n")
+# setting default values
 
-# Updating dictionary with a new value
-employeeInfo.update({"name": "Shan"})
+employee_name = employee_info.pop("name")
+print(
+    "The employees name that you've popped out of the dictionary is",
+    employee_name,
+    "\n",
+)
 
-# Dictionary length and keys
-print("Number of keys in dictionary:", len(employeeInfo), "\n")
-print(employeeInfo.keys(), "\n")
+employee_info.update({"name": "Shan"})
 
-# Loop through dictionary and print key-value pairs
-for key, value in employeeInfo.items():
+print("Number of keys in dictionary:", len(employee_info), "\n")
+
+print(employee_info.keys(), "\n")
+
+print()
+print()
+
+for key, value in employee_info.items():
     print(key, ":", value, "\n")
+    # loops through array and outputs key and value
+
 ```
 
 ## 🔍 Explanation

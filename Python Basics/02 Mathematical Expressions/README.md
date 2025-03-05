@@ -15,25 +15,27 @@ This project demonstrates basic **numeric operations in Python** related to trad
 
 ## 💻 Code Breakdown
 ```python
-# Defining an integer trade value
-TradeIntegerValue = 3
-print(type(TradeIntegerValue))  # Prints variable type (int)
+trade_integer_value = 3
 
-# Defining a floating-point trade value
-TradeFloatValue = 3.54
-print(type(TradeFloatValue))  # Prints variable type (float)
+print(type(trade_integer_value))  ##prints out variable type
 
-# Modifying Trade Value
-TradeValue = 1000
-TradeValue += 100  # Adds 100 to the variable
-print(TradeValue)  # Outputs updated TradeValue
+trade_float_value = 3.54
 
-# Handling negative trade values
-NegativeTradeValue = -1000
-print(abs(NegativeTradeValue))  # Prints absolute (positive) value
+print(type(trade_float_value))  ##prints out variable type
 
-# Rounding floating point values
-print(round(TradeFloatValue))  # Prints rounded version of TradeFloatValue
+
+trade_value = 1000
+
+trade_value += 100  # adds 100 to the variable
+
+print(trade_value)
+
+
+negative_trade_value = -1000
+
+print(abs(negative_trade_value))  # prints positive integer
+
+print(round(trade_float_value))  # prints rounded version of value
 ```
 
 ## 🔍 Explanation
