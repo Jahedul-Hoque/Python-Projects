@@ -16,8 +16,8 @@ client = Client(api_key, secret, testnet=True)
 
 # Define trading parameters
 symbol = "BTCUSDT"
-buy_price_threshold = 85910
-sell_price_threshold = 85950
+buy_price_threshold = 89000
+sell_price_threshold = 90000
 trade_quantity = 0.001
 
 
@@ -83,13 +83,52 @@ def get_historical_data(symbol, interval, limit=1000):
     return df
     # Convert price columns to float
 
+# Convert price columns to float
+
+interval = Client.KLINE_INTERVAL_1MINUTE
+historical_data = get_historical_data(symbol, interval)
 
 
+
+def backtest_strategy(df, buy_price_threshold, sell_price_threshold, trade_quantity):
+    #Simulates a trading strategy on historical data
+
+
+    balance = 20000  # Start with $20000
+    btc_holding = 0  # No BTC at start
+    trades = []  # Store trade history
+
+    for index, row in df.iterrows():
+        price = row["close"]
+
+        if price < buy_price_threshold:
+            # Buy BTC 
+            balance -= price * trade_quantity
+            btc_holding += trade_quantity
+            trades.append((index, price, "BUY"))
+            print(f"Bought at {price} on {index}")
+
+        elif price > sell_price_threshold:
+            # Sell BTC
+            balance += price * trade_quantity
+            btc_holding -= trade_quantity
+            trades.append((index, price, "SELL"))
+            print(f"Sold at {price} on {index}")
+
+    final_balance = balance + (btc_holding * row["close"])
+    profit = final_balance - 10000
+    
+    return balance, trades, final_balance, profit
+
+balance, trades, final_balance, profit= backtest_strategy(historical_data, buy_price_threshold, sell_price_threshold, trade_quantity)
 
 # Main function
 def main():
-    print("Current price of Bitcoin in USDT is:", get_current_price(symbol))
 
+    print(f"Current cash liquidity: $ {balance:.2f}")
+    print(f"Final balance: ${final_balance:.2f}, Profit: ${profit:.2f}")
+  
+    
 
 if __name__ == "__main__":
     main()
