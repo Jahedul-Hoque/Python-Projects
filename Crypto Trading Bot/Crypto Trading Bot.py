@@ -1,7 +1,7 @@
 # Importing .env library to load file
 import os  # Importing OS Library to load .env file
 import time
-
+import pandas as pd
 from binance.client import Client  # Importing Binance platform
 from dotenv import load_dotenv
 
@@ -57,6 +57,33 @@ def trading_bot():
                 place_sell_order(symbol, trade_quantity)
                 in_position = False
         time.sleep(2)  # Pause before fetching the next price
+
+
+def get_historical_data(symbol, interval, limit=1000):
+    # Fetch historical Kline (candlestick) data from Binance
+
+    klines = client.get_klines(symbol=symbol, interval=interval, limit=limit)
+    df = pd.DataFrame(klines, columns=[
+        "timestamp", "open", "high", "low", "close", "volume", 
+        "close_time", "quote_asset_volume", "trades", 
+        "taker_base_vol", "taker_quote_vol", "ignore"
+    ])
+    # Creating a dataframe using the historical data and the collumns
+
+    df["timestamp"] = pd.to_datetime(df["timestamp"], unit="ms")
+    df.set_index("timestamp", inplace=True)
+    # Formatting the timestamp with its ms time unit
+    # Indexing timestamp
+
+    
+    
+    for col in ["open", "high", "low", "close"]:
+        df[col] = df[col].astype(float)
+
+    return df
+    # Convert price columns to float
+
+
 
 
 # Main function
