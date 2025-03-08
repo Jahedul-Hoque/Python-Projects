@@ -16,7 +16,7 @@ client = Client(api_key, secret, testnet=True)
 
 # Define trading parameters
 symbol = "BTCUSDT"
-buy_price_threshold = 88000
+buy_price_threshold = 86000
 sell_price_threshold = 92000
 trade_quantity = 0.001
 
@@ -122,21 +122,23 @@ def backtest_strategy(df, buy_price_threshold, sell_price_threshold, trade_quant
               print("You have sold all your bitcoin already. Not possible to sell more")
 
     final_balance = balance + (btc_holding * row["close"])
+    final_balance
     profit = final_balance - 20000
+    final_profit = profit - 1 *row["close"]
     current_btc_value = btc_holding * price
-    return btc_holding, current_btc_value, balance, trades, final_balance, profit
+    return final_profit, btc_holding, current_btc_value, balance, trades, final_balance, profit
 
-btc_holding, current_btc_value, balance, trades, final_balance, profit= backtest_strategy(
+final_profit, btc_holding, current_btc_value, balance, trades, final_balance, profit= backtest_strategy(
     historical_data, buy_price_threshold, sell_price_threshold, trade_quantity)
 
 # Main function
 def main():
 
     print(f"Current cash balance: $ {balance:.2f}")
-    print(f"Bitcoins: {btc_holding:.2f}")
+    print(f"Bitcoin currently holding: {btc_holding:.2f}")
     print(f"Bitcoin in cash value remaining: $ {current_btc_value:.2f}")
-    print(f"Bitcoin Assets + Cash Balance: ${final_balance:.2f}, Profit: ${profit:.2f}")
-  
+    print(f"Bitcoin Assets + Cash Balance: ${final_balance:.2f}, Profit: ${final_profit:.2f}")
+    print (get_current_price(symbol))
     
 
 if __name__ == "__main__":
