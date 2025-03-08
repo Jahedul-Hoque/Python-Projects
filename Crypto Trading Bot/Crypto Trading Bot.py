@@ -122,7 +122,7 @@ def backtest_strategy(df, buy_price_threshold, sell_price_threshold, trade_quant
               print("You have sold all your bitcoin already. Not possible to sell more")
 
     final_balance = balance + (btc_holding * row["close"])
-    final_balance
+   
     profit = final_balance - 20000
     final_profit = profit - 1 *row["close"]
     current_btc_value = btc_holding * price
