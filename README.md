@@ -46,9 +46,7 @@ This repository will document my **Python journey**, showcasing projects related
 
 ## 💰 **Advanced Financial & Trading Systems (Planned Projects)**  
 
-Once the fundamentals are covered, I'll move towards **financial engineering applications**:
-
-### ✅ Planned Projects:  
+Once the fundamentals are covered, I'll move towards **financial engineering applications**: 
 
 <progress value="0" max="5"></progress> **(60% Completed)**
 
