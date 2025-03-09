@@ -16,7 +16,9 @@ client = Client(api_key, secret, testnet=True)
 # Define trading parameters
 symbol = "BTCUSDT"
 buy_price_threshold = 86000
+second_buy_price_threshold = 80000
 sell_price_threshold = 92000
+second_sell_price_threshold = 95000
 trade_quantity = 0.001
 
 
@@ -48,11 +50,17 @@ def trading_bot():
             if current_price < buy_price_threshold:
                 print(f"Price is below {buy_price_threshold}. Placing Buy order.")
                 place_buy_order(symbol, trade_quantity)
+                if current_price < second_buy_price_threshold:
+                    place_buy_order(symbol,trade_quantity)
+                    # Buying more if the price drops to the floor
                 in_position = True
         else:
             if current_price > sell_price_threshold:
                 print(f"Price is above {sell_price_threshold}. Placing Sell order.") 
                 place_sell_order(symbol, trade_quantity)
+                if current_price > second_sell_price_threshold:
+                    place_sell_order(symbol, trade_quantity)
+                    # Selling more units if the price goes above what we expected more maximum profits
                 in_position = False
         time.sleep(2)  # Pause before fetching the next price
 
@@ -86,12 +94,30 @@ def backtest_strategy(df, buy_price_threshold, sell_price_threshold, trade_quant
             btc_holding += trade_quantity
             trades.append((index, price, "BUY"))
             print(f"Bought at {price} on {index}")
+            # Place buy order
+
+            if price < second_buy_price_threshold and balance >= (price * trade_quantity):
+                balance -= price * trade_quantity
+                btc_holding += trade_quantity
+                trades.append((index, price, "BUY"))
+            print(f"Bought another at {price} on {index}")
+            # Place a second buy order as price decreased even further
+
+
         if price > sell_price_threshold and btc_holding > 0:
             balance += price * trade_quantity
             btc_holding -= trade_quantity
             trades.append((index, price, "SELL"))
             print(f"Sold at {price} on {index}")
-    
+            # Place Sell order
+            if price > second_sell_price_threshold and btc_holding > 0:
+                balance += price * trade_quantity
+                btc_holding -= trade_quantity
+                trades.append((index, price, "SELL"))
+                print(f"Sold at {price} on {index}")
+                # Place another Sell order as Price increased even further
+
+                
     final_balance = balance + (btc_holding * row["close"])
     profit = final_balance - 20000
     final_profit = profit - (1 * row["close"])
