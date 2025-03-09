@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🤖 Crypto Trading Bot & Backtesting System 📊
+# 🤖 Binance Crypto Trading Bot & Backtesting System 📊
 
 </div>
 
@@ -23,11 +23,13 @@ import pandas as pd
 from binance.client import Client
 from dotenv import load_dotenv
 
+
 # Load API keys from .env file
 load_dotenv()
 api_key = os.getenv("APIKey")
 secret = os.getenv("Secret")
 client = Client(api_key, secret, testnet=True)
+
 
 # Define trading parameters
 symbol = "BTCUSDT"
@@ -35,10 +37,43 @@ buy_price_threshold = 86000
 sell_price_threshold = 92000
 trade_quantity = 0.001
 
+
 # Get current BTC price
 def get_current_price(symbol):
     ticker = client.get_symbol_ticker(symbol=symbol)
     return float(ticker["price"])
+
+
+# Place market buy order
+def place_buy_order(symbol, quantity):
+    order = client.order_market_buy(symbol=symbol, quantity=quantity)
+    print(f"Buy order done: {order}\n")
+
+
+# Place market sell order
+def place_sell_order(symbol, quantity):
+    order = client.order_market_sell(symbol=symbol, quantity=quantity)
+    print(f"Sell order done: {order}\n")
+ 
+
+# Automated trading bot logic
+def trading_bot():
+    in_position = False
+    while True:
+        current_price = get_current_price(symbol)
+        print(f"Current price of {symbol}: {current_price}")
+        if not in_position:
+            if current_price < buy_price_threshold:
+                print(f"Price is below {buy_price_threshold}. Placing Buy order.")
+                place_buy_order(symbol, trade_quantity)
+                in_position = True
+        else:
+            if current_price > sell_price_threshold:
+                print(f"Price is above {sell_price_threshold}. Placing Sell order.") 
+                place_sell_order(symbol, trade_quantity)
+                in_position = False
+        time.sleep(2)  # Pause before fetching the next price
+
 
 # Fetch historical market data
 def get_historical_data(symbol, interval, limit=1000):
