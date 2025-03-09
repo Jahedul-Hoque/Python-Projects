@@ -50,15 +50,13 @@ Once the fundamentals are covered, I'll move towards **financial engineering app
 
 ### ✅ Planned Projects:  
 
-<progress value="0" max="5"></progress> **(20% Completed)**
+<progress value="0" max="5"></progress> **(60% Completed)**
 
 ✅**Crypto Trading Bot** – Executing live market trades with APIs.  
-⏳ **Real-Time Trade Execution Logger** – Logging structured trade events dynamically.  
-⏳ **Historical Market Data Analysis** – Using Pandas & NumPy for backtesting strategies.  
+✅ **Real-Time Trade Execution Logger** – Logging structured trade events dynamically.  
+✅ **Historical Market Data Analysis** – Using Pandas & NumPy for backtesting strategies.  
 ⏳ **Options Pricing Models** – Implementing Black-Scholes & Monte Carlo simulations.  
 ⏳ **Risk Management & Portfolio Optimization** – Using statistics & machine learning.  
-
-📌 **These will be stored in `trading-systems/` with proper documentation.**  
 
 ---
 
