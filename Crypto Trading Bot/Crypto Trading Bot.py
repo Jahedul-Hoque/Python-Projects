@@ -15,10 +15,10 @@ client = Client(api_key, secret, testnet=True)
 
 # Define trading parameters
 symbol = "BTCUSDT"
-buy_price_threshold = 86000
+buy_price_threshold = 84000
 second_buy_price_threshold = 80000
-sell_price_threshold = 92000
-second_sell_price_threshold = 95000
+sell_price_threshold = 86000
+second_sell_price_threshold = 88000
 trade_quantity = 0.001
 
 
@@ -117,7 +117,7 @@ def backtest_strategy(df, buy_price_threshold, sell_price_threshold, trade_quant
                 print(f"Sold at {price} on {index}")
                 # Place another Sell order as Price increased even further
 
-                
+
     final_balance = balance + (btc_holding * row["close"])
     profit = final_balance - 20000
     final_profit = profit - (1 * row["close"])
