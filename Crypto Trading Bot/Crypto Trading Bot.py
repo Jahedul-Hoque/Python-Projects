@@ -16,10 +16,12 @@ client = Client(api_key, secret, testnet=True)
 # Define trading parameters
 symbol = "BTCUSDT"
 buy_price_threshold = 84000
-second_buy_price_threshold = 80000
+second_buy_price_threshold = 82000
 sell_price_threshold = 86000
 second_sell_price_threshold = 88000
+stop_loss = 81000
 trade_quantity = 0.001
+
 
 
 # Get current BTC price
@@ -52,8 +54,12 @@ def trading_bot():
                 place_buy_order(symbol, trade_quantity)
                 if current_price < second_buy_price_threshold:
                     place_buy_order(symbol,trade_quantity)
-                    # Buying more if the price drops to the floor
+                    # Buying more if the price drops lower
                 in_position = True
+                if current_price < stop_loss:
+                    place_sell_order(symbol, trade_quantity)
+                    in_position = False
+                    # Placing Stop Loss if price drops too low
         else:
             if current_price > sell_price_threshold:
                 print(f"Price is above {sell_price_threshold}. Placing Sell order.") 
@@ -102,6 +108,13 @@ def backtest_strategy(df, buy_price_threshold, sell_price_threshold, trade_quant
                 trades.append((index, price, "BUY"))
             print(f"Bought another at {price} on {index}")
             # Place a second buy order as price decreased even further
+
+            if price < stop_loss:
+                balance += price * trade_quantity
+                btc_holding -= trade_quantity
+                trades.append((index, price, "SELL-Stop Loss"))
+                print(f"Sold at {price} on {index}")
+                # Place Stop Loss sell order
 
 
         if price > sell_price_threshold and btc_holding > 0:
