@@ -59,7 +59,7 @@ def trading_bot():
                 if current_price < stop_loss:
                     place_sell_order(symbol, trade_quantity)
                     in_position = False
-                    # Placing Stop Loss if price drops too low
+                    # Placing Stop Loss if price drops too low 
         else:
             if current_price > sell_price_threshold:
                 print(f"Price is above {sell_price_threshold}. Placing Sell order.") 
