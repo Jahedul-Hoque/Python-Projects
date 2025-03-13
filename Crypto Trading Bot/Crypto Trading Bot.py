@@ -69,7 +69,7 @@ def trading_bot():
                     # Selling more units if the price goes above what we expected more maximum profits
                 in_position = False
         time.sleep(2)  # Pause before fetching the next price
- 
+  
 
 # Fetch historical market data
 def get_historical_data(symbol, interval, limit=1000):
