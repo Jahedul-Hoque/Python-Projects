@@ -5,7 +5,7 @@
   
 ## **📌 Overview**
 After mastering **C++ fundamentals** for high-performance finance and trading applications, I am now focusing on **Python** to expand my skills in **quantitative finance, data analysis, and algorithmic trading**.
-
+   
 This repository will document my **Python journey**, showcasing projects related to:
 - **Market Data Processing** 📊
 - **Algorithmic Trading Strategies** 📈
