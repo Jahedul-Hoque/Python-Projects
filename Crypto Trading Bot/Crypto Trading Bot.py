@@ -15,11 +15,11 @@ client = Client(api_key, secret, testnet=True)
 
 # Define trading parameters
 symbol = "BTCUSDT"
-buy_price_threshold = 84000
-second_buy_price_threshold = 82000
-sell_price_threshold = 86000
-second_sell_price_threshold = 88000
-stop_loss = 81000
+buy_price_threshold = 83000
+second_buy_price_threshold = 81000
+sell_price_threshold = 83100
+second_sell_price_threshold = 85000
+stop_loss = 78000
 trade_quantity = 0.001
 
 
@@ -149,5 +149,6 @@ def main():
     print(f"Bitcoin Assets + Cash Balance: ${final_balance:.2f}, Profit: ${final_profit:.2f}")
     print(get_current_price(symbol))
 
+#trading_bot()
 if __name__ == "__main__":
     main()
