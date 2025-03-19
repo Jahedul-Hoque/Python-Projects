@@ -71,6 +71,7 @@ class trading_bot:
         order = client.order_market_sell(symbol=self.symbol, quantity=self.trade_params.quantity)
         print(f"Sell order done: {order}\n")
 
+    #defines the trading bot function
     def start_trading(self):
         while True:
             current_price = market_data(self.symbol).get_current_price()
