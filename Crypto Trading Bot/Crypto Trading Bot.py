@@ -73,10 +73,13 @@ class trading_bot:
 
     #defines the trading bot function
     def start_trading(self):
+        
+        #while you've bought some BTC, do:
         while True:
             current_price = market_data(self.symbol).get_current_price()
             print(f"Current price of {self.symbol}: {current_price}")
 
+            #buy order / stop loss thresholds
             if not self.in_position:
                 if current_price < self.trade_params.buy_threshold:
                     print(f"Price below {self.trade_params.buy_threshold}, buying.")
@@ -87,6 +90,8 @@ class trading_bot:
                     if current_price < self.trade_params.stop_loss:
                         self.place_sell_order()
                         self.in_position = False
+
+            #sell order / take profit thresholds
             else:
                 if current_price > self.trade_params.sell_threshold:
                     print(f"Price above {self.trade_params.sell_threshold}, selling.")
@@ -94,8 +99,13 @@ class trading_bot:
                     if current_price > self.trade_params.second_sell_threshold:
                         self.place_sell_order()
                     self.in_position = False
+            
+            #pausing time for the API
             time.sleep(2)
 
+
+
+#defining backtester class
 class backtester:
     def __init__(self, df, trade_params):
         self.df = df
@@ -104,6 +114,7 @@ class backtester:
         self.btc_holding = 1
         self.trades = []
 
+    #running backtest function
     def run_backtest(self):
         for index, row in self.df.iterrows():
             price = row["close"]
