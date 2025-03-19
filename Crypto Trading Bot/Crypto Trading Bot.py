@@ -117,7 +117,11 @@ class backtester:
     #running backtest function
     def run_backtest(self):
         for index, row in self.df.iterrows():
+
+            #get price at close 
             price = row["close"]
+
+            #buy order / stop loss thresholds
             if price < self.trade_params.buy_threshold and self.balance >= (price * self.trade_params.quantity):
                 self.balance -= price * self.trade_params.quantity
                 self.btc_holding += self.trade_params.quantity
@@ -131,6 +135,7 @@ class backtester:
                     self.btc_holding -= self.trade_params.quantity
                     self.trades.append((index, price, "SELL-Stop Loss"))
 
+            #sell order / take profit thresholds
             if price > self.trade_params.sell_threshold and self.btc_holding > 0:
                 self.balance += price * self.trade_params.quantity
                 self.btc_holding -= self.trade_params.quantity
@@ -145,13 +150,20 @@ class backtester:
         final_profit = profit - (1 * row["close"])
         return final_profit, self.btc_holding, self.balance, final_balance, profit
 
-# Initialize classes
+
+
+#initialise classes
 symbol = "BTCUSDT"
-trade_params = trade_parameters(83000, 81000, 83100, 85000, 78000, 0.001)
+trade_params = trade_parameters(84500, 84000, 86000, 86500, 80000, 0.001)
 market_data = market_data(symbol, Client.KLINE_INTERVAL_1MINUTE)
 historical_data = market_data.get_historical_data()
 
+
+
+#call upon function that calls upon the classes with its parameters
 backtester = backtester(historical_data, trade_params)
+
+#returns values from the function
 final_profit, btc_holding, balance, final_balance, profit = backtester.run_backtest()
 
 # Main function
@@ -160,6 +172,5 @@ def main():
     print(f"Bitcoin currently holding: {btc_holding:.2f}")
     print(f"Bitcoin Assets + Cash Balance: ${final_balance:.2f}, Profit: ${final_profit:.2f}")
     print(market_data.get_current_price())
-
 if __name__ == "__main__":
     main()
