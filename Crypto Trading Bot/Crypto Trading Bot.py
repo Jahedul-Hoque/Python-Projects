@@ -5,11 +5,13 @@ from binance.client import Client
 from dotenv import load_dotenv
 
 
+
 #load API keys / Secret from .env file
 load_dotenv()
 api_key = os.getenv("APIKey")
 secret = os.getenv("Secret")
 client = Client(api_key, secret, testnet=True)
+
 
 
 
@@ -25,12 +27,14 @@ class trade_parameters:
 
 
 
+#defines market data parameters
 class market_data:
     def __init__(self, symbol, interval, limit=1000):
         self.symbol = symbol
         self.interval = interval
         self.limit = limit
 
+    #function gets ticks of data worth of 1000 minutes 
     def get_historical_data(self):
         klines = client.get_klines(symbol=self.symbol, interval=self.interval, limit=self.limit)
         df = pd.DataFrame(klines, columns=[
@@ -47,6 +51,8 @@ class market_data:
     def get_current_price(self):
         ticker = client.get_symbol_ticker(symbol=self.symbol)
         return float(ticker["price"])
+
+
 
 class trading_bot:
     def __init__(self, symbol, trade_params):
