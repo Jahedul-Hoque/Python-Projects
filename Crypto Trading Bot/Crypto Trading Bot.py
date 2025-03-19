@@ -54,23 +54,26 @@ class market_data:
 
 
 
+#calls trading bot with parameters
 class trading_bot:
     def __init__(self, symbol, trade_params):
         self.symbol = symbol
         self.trade_params = trade_params
         self.in_position = False
 
+    #places buy order
     def place_buy_order(self):
         order = client.order_market_buy(symbol=self.symbol, quantity=self.trade_params.quantity)
         print(f"Buy order done: {order}\n")
 
+    #places sell order
     def place_sell_order(self):
         order = client.order_market_sell(symbol=self.symbol, quantity=self.trade_params.quantity)
         print(f"Sell order done: {order}\n")
 
     def start_trading(self):
         while True:
-            current_price = trading_symbol(self.symbol).get_current_price()
+            current_price = market_data(self.symbol).get_current_price()
             print(f"Current price of {self.symbol}: {current_price}")
 
             if not self.in_position:
@@ -144,7 +147,7 @@ def main():
     print(f"Current cash balance: $ {balance:.2f}")
     print(f"Bitcoin currently holding: {btc_holding:.2f}")
     print(f"Bitcoin Assets + Cash Balance: ${final_balance:.2f}, Profit: ${final_profit:.2f}")
-    print(trading_symbol(symbol).get_current_price())
+    print(market_data.get_current_price())
 
 if __name__ == "__main__":
     main()
