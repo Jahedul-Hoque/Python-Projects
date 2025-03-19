@@ -4,21 +4,16 @@ import pandas as pd
 from binance.client import Client
 from dotenv import load_dotenv
 
+
 #load API keys / Secret from .env file
 load_dotenv()
 api_key = os.getenv("APIKey")
 secret = os.getenv("Secret")
 client = Client(api_key, secret, testnet=True)
 
-#defines
-class trading_symbol:
-    def __init__(self, symbol):
-        self.symbol = symbol
-    
-    def get_current_price(self):
-        ticker = client.get_symbol_ticker(symbol=self.symbol)
-        return float(ticker["price"])
 
+
+#defines the parameters of all the thresholds such as buy/sell/stop loss/quantity, etc
 class trade_parameters:
     def __init__(self, buy_threshold, second_buy_threshold, sell_threshold, second_sell_threshold, stop_loss, quantity):
         self.buy_threshold = buy_threshold
@@ -27,6 +22,8 @@ class trade_parameters:
         self.second_sell_threshold = second_sell_threshold
         self.stop_loss = stop_loss
         self.quantity = quantity
+
+
 
 class market_data:
     def __init__(self, symbol, interval, limit=1000):
@@ -45,6 +42,11 @@ class market_data:
         for col in ["open", "high", "low", "close"]:
             df[col] = df[col].astype(float)
         return df
+
+    #gets the current price of the symbol being traded
+    def get_current_price(self):
+        ticker = client.get_symbol_ticker(symbol=self.symbol)
+        return float(ticker["price"])
 
 class trading_bot:
     def __init__(self, symbol, trade_params):
