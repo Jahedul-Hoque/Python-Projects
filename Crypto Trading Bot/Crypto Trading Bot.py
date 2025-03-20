@@ -14,7 +14,6 @@ client = Client(api_key, secret, testnet=True)
 
 
 
-
 #defines the parameters of all the thresholds such as buy/sell/stop loss/quantity, etc
 class TradeParameters:
     def __init__(self, buy_threshold, second_buy_threshold, sell_threshold, second_sell_threshold, stop_loss, quantity):
@@ -151,6 +150,7 @@ class Backtester:
         return final_profit, self.btc_holding, self.balance, final_balance, cashprofit
 
 
+
 #calls the main backtest function which takes in all the parameters
 def run_custom_backtest(symbol, buy_threshold, second_buy_threshold, sell_threshold, second_sell_threshold, stop_loss, quantity):
     
@@ -171,6 +171,8 @@ def run_custom_backtest(symbol, buy_threshold, second_buy_threshold, sell_thresh
     print(f"BTC Holding: {btc_holding:.2f}")
     print(f"Profit: ${final_profit:.2f}")
     print(market.get_current_price())
+
+
 
 # Main function
 def main():
