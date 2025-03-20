@@ -16,7 +16,7 @@ client = Client(api_key, secret, testnet=True)
 
 
 #defines the parameters of all the thresholds such as buy/sell/stop loss/quantity, etc
-class trade_parameters:
+class TradeParameters:
     def __init__(self, buy_threshold, second_buy_threshold, sell_threshold, second_sell_threshold, stop_loss, quantity):
         self.buy_threshold = buy_threshold
         self.second_buy_threshold = second_buy_threshold
@@ -28,7 +28,7 @@ class trade_parameters:
 
 
 #defines market data parameters
-class market_data:
+class MarketData:
     def __init__(self, symbol, interval, limit=1000):
         self.symbol = symbol
         self.interval = interval
@@ -55,7 +55,7 @@ class market_data:
 
 
 #calls trading bot with parameters
-class trading_bot:
+class TradingBot:
     def __init__(self, symbol, trade_params):
         self.symbol = symbol
         self.trade_params = trade_params
@@ -76,7 +76,7 @@ class trading_bot:
         
         #while you've bought some BTC, do:
         while True:
-            current_price = market_data(self.symbol).get_current_price()
+            current_price = MarketData(self.symbol).get_current_price()
             print(f"Current price of {self.symbol}: {current_price}")
 
             #buy order / stop loss thresholds
@@ -105,8 +105,8 @@ class trading_bot:
 
 
 
-#defining backtester class
-class backtester:
+#defining Backtester class
+class Backtester:
     def __init__(self, df, trade_params):
         self.df = df
         self.trade_params = trade_params
@@ -146,31 +146,34 @@ class backtester:
                     self.trades.append((index, price, "SELL"))
 
         final_balance = self.balance + (self.btc_holding * row["close"])
-        profit = final_balance - 20000
-        final_profit = profit - (1 * row["close"])
-        return final_profit, self.btc_holding, self.balance, final_balance, profit
+        cashprofit = final_balance - 20000
+        final_profit = cashprofit - (1 * row["close"])
+        return final_profit, self.btc_holding, self.balance, final_balance, cashprofit
 
 
+#calls the main backtest function which takes in all the parameters
+def RunCustomBacktest(symbol, buy_threshold, second_buy_threshold, sell_threshold, second_sell_threshold, stop_loss, quantity):
+    
+    #makes a variable that feeds its trade parameters into the class "Trade Parameters"
+    trade_params = TradeParameters(buy_threshold, second_buy_threshold, sell_threshold, second_sell_threshold, stop_loss, quantity)
 
-#initialise classes
-symbol = "BTCUSDT"
-trade_params = trade_parameters(84500, 84000, 86000, 86500, 80000, 0.001)
-market_data = market_data(symbol, Client.KLINE_INTERVAL_1MINUTE)
-historical_data = market_data.get_historical_data()
+    #makes a variable that feeds the bitcoin symbol into the MarketData class and retrieves the prices per minute interval
+    market = MarketData(symbol, Client.KLINE_INTERVAL_1MINUTE)
 
-
-
-#call upon function that calls upon the classes with its parameters
-backtester = backtester(historical_data, trade_params)
-
-#returns values from the function
-final_profit, btc_holding, balance, final_balance, profit = backtester.run_backtest()
+    #feeds data into variable
+    historical_data = market.get_historical_data()
+    
+    backtest = Backtester(historical_data, trade_params)
+    final_profit, btc_holding, balance, final_balance, cashprofit = backtest.run_backtest()
+    
+    print(f"Custom Backtest Results for {symbol}:")
+    print(f"Cash Balance: ${balance:.2f}")
+    print(f"BTC Holding: {btc_holding:.2f}")
+    print(f"Profit: ${final_profit:.2f}")
+    print(market.get_current_price())
 
 # Main function
 def main():
-    print(f"Current cash balance: $ {balance:.2f}")
-    print(f"Bitcoin currently holding: {btc_holding:.2f}")
-    print(f"Bitcoin Assets + Cash Balance: ${final_balance:.2f}, Profit: ${final_profit:.2f}")
-    print(market_data.get_current_price())
+    RunCustomBacktest("BTCUSDT", 84200, 82000, 85000, 87000, 81000, 0.001)
 if __name__ == "__main__":
     main()
