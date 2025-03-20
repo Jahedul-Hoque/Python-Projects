@@ -152,7 +152,7 @@ class Backtester:
 
 
 #calls the main backtest function which takes in all the parameters
-def RunCustomBacktest(symbol, buy_threshold, second_buy_threshold, sell_threshold, second_sell_threshold, stop_loss, quantity):
+def run_custom_backtest(symbol, buy_threshold, second_buy_threshold, sell_threshold, second_sell_threshold, stop_loss, quantity):
     
     #makes a variable that feeds its trade parameters into the class "Trade Parameters"
     trade_params = TradeParameters(buy_threshold, second_buy_threshold, sell_threshold, second_sell_threshold, stop_loss, quantity)
@@ -174,6 +174,6 @@ def RunCustomBacktest(symbol, buy_threshold, second_buy_threshold, sell_threshol
 
 # Main function
 def main():
-    RunCustomBacktest("BTCUSDT", 84200, 82000, 85000, 87000, 81000, 0.001)
+    run_custom_backtest("BTCUSDT", 84200, 82000, 85000, 87000, 81000, 0.001)
 if __name__ == "__main__":
     main()
