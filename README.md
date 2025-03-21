@@ -2,7 +2,7 @@
 <p align="center">
   <b>Documenting my journey learning Python to become a Developer at a Hedge Fund</b>
 </p>  
-      
+        
 ## **📌 Overview**
 After mastering **C++ fundamentals** for high-performance finance and trading applications, I am now focusing on **Python** to expand my skills in **quantitative finance, data analysis, and algorithmic trading**.
    
