@@ -176,6 +176,16 @@ def run_custom_backtest(symbol, buy_threshold, second_buy_threshold, sell_thresh
 
 # Main function
 def main():
-    run_custom_backtest("BTCUSDT", 84200, 82000, 85000, 87000, 81000, 0.001)
+
+    run_custom_backtest(
+        symbol = "BTCUSDT", 
+        buy_threshold= 84200, 
+        second_buy_threshold= 82000, 
+        sell_threshold= 85000, 
+        second_sell_threshold=87000, 
+        stop_loss= 81000, 
+        quantity= 0.001
+    )
+    
 if __name__ == "__main__":
     main()
