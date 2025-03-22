@@ -113,10 +113,10 @@ Feel free to **fork this repo**, suggest improvements, or contribute with new fe
 ---
 
 ## 🎯 Future Enhancements
-- Add **Stop-Loss Trailing** logic.
-- Implement **Strategy Optimization Engine**.
-- Integrate **Telegram/Email Alerts** for trade execution.
-- Support **Multiple Assets (ETHUSDT, etc.)**.
+- Non Cummulative P&L statement per 1440 minute intervals for 7 intervals.
+- Adding a cummulative P&L Statement at the end of the 7 intervals.
+- Calculating the sharp ratio of investment.
+- Evaluate strategy per interval and look for trends.
 
 ---
 
