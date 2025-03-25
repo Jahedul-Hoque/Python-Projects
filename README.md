@@ -1,4 +1,4 @@
-<h1 align="center">🐍 My Python Projects for Hedge Fund Development 📈</h1>  
+<h1 align="center">🐍 My Python Projects for Hedge Fund Development 📈</h1>   
 <p align="center">
   <b>Documenting my journey learning Python to become a Developer at a Hedge Fund</b>
 </p>  
